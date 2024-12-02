@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import categoriesRoutes from "./categories/categories.routes";
 import newsRoutes from "./news/news.routes";
 
@@ -6,6 +6,7 @@ export const startServer = () => {
     try {
         const app = express();
 
+        app.use(json());
         app.use("/categories", categoriesRoutes.router);
         app.use("/news",newsRoutes.router);
 
